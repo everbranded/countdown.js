@@ -1,13 +1,13 @@
 /**
 
- _   _                               _         _     
-| |_(_)_ __ ___   ___  ___  ___ __ _| | ___   (_)___ 
-| __| | '_ ` _ \ / _ \/ __|/ __/ _` | |/ _ \  | / __|
-| |_| | | | | | |  __/\__ \ (_| (_| | |  __/_ | \__ \
- \__|_|_| |_| |_|\___||___/\___\__,_|_|\___(_)/ |___/
-                                            |__/     
+  _   _                               _         _     
+ | |_(_)_ __ ___   ___  ___  ___ __ _| | ___   (_)___ 
+ | __| | '_ ` _ \ / _ \/ __|/ __/ _` | |/ _ \  | / __|
+ | |_| | | | | | |  __/\__ \ (_| (_| | |  __/_ | \__ \
+  \__|_|_| |_| |_|\___||___/\___\__,_|_|\___(_)/ |___/
+                                             |__/    
 
-@author   Zach Alam
+@author   Zach Alam <www.zachalam.com>
 
 
 
@@ -32,3 +32,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
+
+
+// verify that the DOM is finished.
+$(document).ready(function() {
+ 
+ // find all elements with class of "timescale".
+ $(".timescale").each(function(){
+  
+  
+  
+ })
+ 
+});
