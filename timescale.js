@@ -37,11 +37,65 @@ THE SOFTWARE.
 // verify that the DOM is finished.
 $(document).ready(function() {
  
- // find all elements with class of "timescale".
- $(".timescale").each(function(){
-  
-  
-  
- })
+	var debug = true;
+
+	/**
+
+	*/
+	function get_time_param(timescale,type,overrider)
+	{
+		// get HTML attribute of data-timeperiod where timeperiod is any
+		// one of "year,month,date,hour,minute,second,millisecond"
+		var time_param = $(timescale).attr("data-"+type);
+
+		// if debug enabled, log store of val in HTML attribute.
+		if(debug) console.log("get " + type + ": " + time_param);
+
+		// if no param is set for this time period, use value sent.
+		if(!time_param) time_param = overrider;
+
+		// log what the final time period is set to.
+		if(debug) console.log("set " + type + ": " + time_param);
+
+		// return time to use for this period.
+		return time_param;
+	}
+
+	// find all elements with class of "timescale".
+	$(".timescale").each(function(){
+
+
+		// get current time
+		var current_time = new Date();
+		if(debug) console.log("current time: " + current_time);
+
+		// get values for all timescale period options
+		var year = get_time_param(this,"year",current_time.getFullYear());
+		var month = get_time_param(this,"month",current_time.getMonth());
+		var date = get_time_param(this,"date",current_time.getDate());
+		var hour = get_time_param(this,"hour",current_time.getHours());
+		var minute = get_time_param(this,"minute",current_time.getMinutes());
+		var second = get_time_param(this,"second",current_time.getSeconds());
+		var millisecond = get_time_param(this,"millisecond",current_time.getMilliseconds());
+
+		// get future time
+		var future_time = new Date(year, month, date, hour, minute, second, millisecond);
+		if(debug) console.log("future time: " + future_time);
+
+		// calculate future timestamp
+		var future_timestamp = future_time.getTime();
+		if(debug) console.log("future timestamp: " + future_timestamp);
+
+		// calculate current timestamp
+		var current_timestamp = current_time.getTime();
+		if(debug) console.log("current timestamp: " + current_timestamp);
+
+
+		// get difference in timestamps
+		var timestamp_difference = future_timestamp - current_timestamp;
+		if(debug) console.log("timestamp difference: " + timestamp_difference);
+
+
+	});
  
 });
