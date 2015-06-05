@@ -1,6 +1,15 @@
 # timescale.js
 A jQuery countdown with limitless options.
 
+## Usage
+Simply add the "timescale" class to any HTML element.
+
+```html
+<span class="timespan"></span>
+```
+
+## Attributes
+coming soon..
 
 ## License
 Copyright (c) 2015 Zach Alam www.zachalam.com
