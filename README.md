@@ -9,7 +9,21 @@ Simply add the "timescale" class to any HTML element.
 ```
 
 ## Attributes
-coming soon..
+| Attribute        | Time Period           | Range  |
+| ---------------- |:---------------------:| ------:|
+| data-year        | Year                  | 1-9999 |
+| data-month       | Month of year         | 1-12   |
+| data-date        | Date of month         | 1-31   |
+| data-hour        | Hour (military)       | 0-24   |
+| data-minute      | Minute                | 0-59   |
+| data-second      | Second                | 0-59   |
+| data-millisecond | Millisecond           | 0-999  |
+
+## Examples
+Countdown to the September 15th, of this year.
+```html
+<span class="timespan" data-month="9" data-month="15"></span>
+```
 
 ## License
 Copyright (c) 2015 Zach Alam www.zachalam.com
