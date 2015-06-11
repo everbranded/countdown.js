@@ -15,7 +15,6 @@ Example: http://everbranded.com/gift-card-contest
 */
 
 
-
 $(document).ready(function() {
 
 	// possible element attributes
@@ -50,21 +49,17 @@ $(document).ready(function() {
     // this is the case when a data-repeat element is present.
     function rollover_utc(current_timestamp,future_timestamp,repeat_in)
     {
-        // check to see if this timestamp is in past
-        if(future_timestamp < current_timestamp)
+        while(future_timestamp < current_timestamp)
         {
             // recursive case:
             // calculate a new future timestamp, using
             // a set number of seconds (repeat_in given in ms).
-            repeat_in = repeat_in * 1000;
-            rollover_utc(future_timestamp + repeat_in);
+            var future_timestamp = future_timestamp + (repeat_in * 1000);
         }
-        else
-        {
-            // base case:
-            // this timestamp is in the future and it's acceptable.
-            return future_timestamp;
-        }
+
+        // return future_timestmap when its larger than the current_timestamp
+        return future_timestamp;
+        
     }
     
     
@@ -79,26 +74,17 @@ $(document).ready(function() {
         // build an object to store how much time unit is left.
         var countdown = new Array();
         
-        console.log("ms left: " + milliseconds_left);
-        console.log("seconds left: " + seconds);
-        
         // calculate days = 86400s = 1 day
         countdown["days"] = Math.floor(seconds / 86400);
         seconds %= 86400;
-        
-        console.log("seconds after days: " + seconds);
-        
+                
         // calculate hours: 3600s = 1 hour
         countdown["hours"] = Math.floor(seconds / 3600);
         seconds %= 3600;
-
-        console.log("seconds after hours: " + seconds);
         
         // calculate minutes; 60s = 1 minute
         countdown["minutes"] = Math.floor(seconds / 60);
         seconds %= 60;
-
-        console.log("seconds after minutes: " + seconds);
         
         // the remiainder contains number of seconds left.
         countdown["seconds"] = seconds;
@@ -136,11 +122,15 @@ $(document).ready(function() {
         
         // if a repeat is set, a rollover is enabled
         // calculate the newest timestamp that is not in the past.
-        if(repeat) future_timestamp = rollover_utc(current_timestamp,future_timestamp,repeat);
+        if(repeat) var new_timestamp = rollover_utc(current_timestamp,future_timestamp,repeat);
+
+        console.log(new_timestamp);
         
         // calculate how many seconds are left
         var milliseconds_left = future_timestamp - current_timestamp;
         
+        console.log(future_timestamp);
+        console.log(current_timestamp);
         
         // build countdown array
         var countdown = build_countdown_array(milliseconds_left); 
