@@ -97,11 +97,11 @@ $(document).ready(function() {
         
     }
     
-    // update each timescale element every 1 second. 
+    // update each countdown element every 1 second. 
     setInterval(function() { 
     
-        // find all HTML elements with timescale class
-        $(".timescale").each(function() {
+        // find all HTML elements with countdown class
+        $(".countdown").each(function() {
     
             // get time attributes from element
             var year = $(this).attr("data-year");
@@ -145,7 +145,7 @@ $(document).ready(function() {
             // set this elements text to the countdown string
             $(this).text(countdown_string);
     
-        }); // end $(".timescale").each()
+        }); // end $(".countdown").each()
 
     }, 1000); // end setInterval()
         
