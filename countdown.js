@@ -48,7 +48,7 @@ $(document).ready(function() {
     }
     
     // finalize_future_utc()
-    // we may want this countdown to repeat every x number of seconds.
+    // we may want this countdown to repeat every x number of minutes.
     // this is the case when a data-repeat element is present.
     function rollover_utc(current_timestamp,future_timestamp,repeat_in)
     {
@@ -56,8 +56,9 @@ $(document).ready(function() {
         {
             // recursive case:
             // calculate a new future timestamp, using
-            // a set number of seconds (repeat_in given in ms).
-            var future_timestamp = future_timestamp + (repeat_in * 1000);
+            // a set number of minutes (repeat_in given in ms).
+            // therefore we multiple by 1000 to get seconds, then 60 to get minutes.
+            var future_timestamp = future_timestamp + (repeat_in * 1000 * 60);
         }
 
         // return future_timestmap when its larger than the current_timestamp
