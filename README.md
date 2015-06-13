@@ -1,44 +1,39 @@
-# timescale.js
-A jQuery countdown with limitless options.
+# countdown.js
+A jQuery extension that replaces any element in the DOM with a timed countdown.
+
+## Installation
+Include jQuery first then fadein.js.
+```html
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="countdown.js"></script>
+```
 
 ## Usage
-Simply add the "timescale" class to any HTML element.
-
+Add the countdown class to any element. 
 ```html
-<span class="timespan"></span>
+<div class="countdown"></div>
+```
+
+## Examples
+Build a countdown that that counts down second by second to August 15th, 2020 at 8:30pm GMT.
+```html
+<div class="countdown" data-year="2020" data-month"8" data-date="15" data-hour="20" data-minute="30">countdown loading...</div>
 ```
 
 ## Attributes
-| Attribute        | Time Period           | Range  |
-| ---------------- |:---------------------:| ------:|
-| data-year        | Year                  | 1-9999 |
-| data-month       | Month of year         | 1-12   |
-| data-date        | Date of month         | 1-31   |
-| data-hour        | Hour (military)       | 0-24   |
-| data-minute      | Minute                | 0-59   |
-| data-second      | Second                | 0-59   |
-| data-millisecond | Millisecond           | 0-999  |
+| Attribute   | Purpose                                        | Required |
+| ----------- | ---------------------------------------------- | -------- |
+| data-year   | In GMT, sets the year for countdown.           | yes      |
+| data-month  | In GMT, sets the month for countdown.          | yes      |
+| data-date   | In GMT, sets the date for countdown.           | yes      |
+| data-hour   | In GMT, sets the hour for countdown.           | no       |
+| data-minute | In GMT, sets the minute for countdown.         | no       |
+| data-repeat | Starts a new countdown x number of seconds after original countdown ends | no |
 
-## Examples
-Countdown to the September 15th, of this year.
+
+## Live Demo
 ```html
-<span class="timespan" data-month="9" data-month="15"></span>
+http://everbranded.com/gift-card-contest
 ```
 
-## License
-Copyright (c) 2015 Zach Alam www.zachalam.com
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+
