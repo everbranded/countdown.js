@@ -137,8 +137,12 @@ $(document).ready(function() {
             var countdown = build_countdown_array(milliseconds_left); 
             
             // build countdown string
-            var countdown_string = 
-                countdown["days"] + " " + LANG_DAYS + " " + 
+            // display days only if there are >0 days left.
+            if(countdown["days"]) var countdown_string = countdown["days"] + " " + LANG_DAYS + " ";
+            else var countdown_string = "";
+            
+            // append rest of ocuntdown string
+            countdown_string = 
                 countdown["hours"] + " " + LANG_HOURS + " " +
                 countdown["minutes"] + " " + LANG_MINS + " " +
                 countdown["seconds"] + " " + LANG_SECS;
